@@ -1,3 +1,12 @@
+import PropTypes from 'prop-types';
+
+import {
+  StatisticsWrapper,
+  StatisticsItem,
+  ItemText,
+  StatisticsValue,
+} from 'components/Statistics/Statistics.styled';
+
 export const Statistics = ({
   good,
   neutral,
@@ -7,29 +16,35 @@ export const Statistics = ({
 }) => {
   return (
     <div>
-      <h2 className="StatisticsTitle">Statistics</h2>
-      <ul>
-        <li className="StatisticsItem">
-          <p className="ItemText">Good:</p>
-          <span className="ItemValue">{good}</span>
-        </li>
-        <li className="StatisticsItem">
-          <p className="ItemText">Neutral:</p>
-          <span className="ItemValue">{neutral}</span>
-        </li>
-        <li className="StatisticsItem">
-          <p className="ItemText">Bad:</p>
-          <span className="ItemValue">{bad}</span>
-        </li>
-        <li className="StatisticsItem">
-          <p className="ItemText">Total:</p>
-          <span className="ItemValue">{total}</span>
-        </li>
-        <li className="StatisticsItem">
-          <p className="ItemText">PositivePercentage:</p>
-          <span className="ItemValue">{positivePercentage}</span>
-        </li>
-      </ul>
+      <StatisticsWrapper>
+        <StatisticsItem>
+          <ItemText>Good:</ItemText>
+          <StatisticsValue>{good}</StatisticsValue>
+        </StatisticsItem>
+        <StatisticsItem>
+          <ItemText>Neutral:</ItemText>
+          <StatisticsValue>{neutral}</StatisticsValue>
+        </StatisticsItem>
+        <StatisticsItem>
+          <ItemText>Bad:</ItemText>
+          <StatisticsValue>{bad}</StatisticsValue>
+        </StatisticsItem>
+        <StatisticsItem>
+          <ItemText>Total:</ItemText>
+          <StatisticsValue>{total}</StatisticsValue>
+        </StatisticsItem>
+        <StatisticsItem>
+          <ItemText>PositivePercentage:</ItemText>
+          <StatisticsValue>{positivePercentage}</StatisticsValue>
+        </StatisticsItem>
+      </StatisticsWrapper>
     </div>
   );
+};
+Statistics.propTypes = {
+  good: PropTypes.number,
+  neutral: PropTypes.number,
+  bad: PropTypes.number,
+  total: PropTypes.number,
+  positivePercentage: PropTypes.number,
 };

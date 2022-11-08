@@ -1,27 +1,26 @@
-export const FeedbackOptions = ({ onLeaveFeedback }) => {
+import { FedbackButton } from 'components/FeedbackOptions/FeedbackOptions.styled';
+
+export const FeedbackOptions = () => {
   return (
     <div>
-      <button
-        className="feedbackButton"
+      <FedbackButton
         type="button"
-        onClick={onLeaveFeedback}
+        // onClick={onLeaveGoodFeedback}
       >
         Good
-      </button>
-      <button
-        className="feedbackButton"
+      </FedbackButton>
+      <FedbackButton
         type="button"
-        onClick={onLeaveFeedback}
+        // onClick={onLeaveNeutralFeedback}
       >
         Neutral
-      </button>
-      <button
-        className="feedbackButton"
+      </FedbackButton>
+      <FedbackButton
         type="button"
-        onClick={onLeaveFeedback}
+        // onClick={onLeaveBadFeedback}
       >
         Bad
-      </button>
+      </FedbackButton>
     </div>
   );
 };
