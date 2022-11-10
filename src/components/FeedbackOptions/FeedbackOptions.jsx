@@ -1,24 +1,20 @@
 import { FedbackButton } from 'components/FeedbackOptions/FeedbackOptions.styled';
 
-export const FeedbackOptions = () => {
+export const FeedbackOptions = ({
+  onLeaveGoodFeedback,
+  onLeaveNeutralFeedback,
+  onLeaveBadFeedback,
+}) => {
   return (
     <div>
-      <FedbackButton
-        type="button"
-        // onClick={onLeaveGoodFeedback}
-      >
+      <FedbackButton type="button" onClick={onLeaveGoodFeedback}>
         Good
       </FedbackButton>
-      <FedbackButton
-        type="button"
-        // onClick={onLeaveNeutralFeedback}
-      >
+
+      <FedbackButton type="button" onClick={onLeaveNeutralFeedback}>
         Neutral
       </FedbackButton>
-      <FedbackButton
-        type="button"
-        // onClick={onLeaveBadFeedback}
-      >
+      <FedbackButton type="button" onClick={onLeaveBadFeedback}>
         Bad
       </FedbackButton>
     </div>
