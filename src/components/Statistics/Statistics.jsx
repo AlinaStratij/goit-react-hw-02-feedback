@@ -35,7 +35,7 @@ export const Statistics = ({
         </StatisticsItem>
         <StatisticsItem>
           <ItemText>PositivePercentage:</ItemText>
-          <StatisticsValue>{positivePercentage}</StatisticsValue>
+          <StatisticsValue>{positivePercentage}%</StatisticsValue>
         </StatisticsItem>
       </StatisticsWrapper>
     </div>

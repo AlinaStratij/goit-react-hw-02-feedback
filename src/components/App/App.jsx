@@ -12,6 +12,7 @@ export class App extends React.Component {
     neutral: 0,
     bad: 0,
   };
+
   buttonIncrementGood = () => {
     this.setState(prevState => ({
       good: prevState.good + 1,
@@ -28,15 +29,16 @@ export class App extends React.Component {
     }));
   };
 
-  // countTotalFeedback = () => {
-  //   console.log(`hello`);
-  //   //   if (this.state.good > 0 || this.state.neutral > 0 || this.state.bad > 0) {
-  //   //     // return totalFedback =
-  //   //     //     this.state.good + this.state.neutral + this.state.bad;
-  //   //     return console.log(`there are some information`);
-  //   //   }
-  //   // }
-  // };
+  countTotalFeedback = () => {
+    const countFeedback = this.state.good + this.state.neutral + this.state.bad;
+    return countFeedback;
+  };
+  countPositiveFeedbackPercentage = () => {
+    const positiveFeedback = Math.round(
+      (this.state.good / this.countTotalFeedback()) * 100
+    );
+    return positiveFeedback;
+  };
 
   render() {
     return (
@@ -49,15 +51,19 @@ export class App extends React.Component {
           />
         </SectionTitle>
         <SectionTitle title="Statistics">
-          <Statistics
-            good={this.state.good}
-            neutral={this.state.neutral}
-            bad={this.state.bad}
-            total={this.countTotalFeedback}
-            positivePercentage={0}
-          />
+          {this.countTotalFeedback() > 0 && (
+            <Statistics
+              good={this.state.good}
+              neutral={this.state.neutral}
+              bad={this.state.bad}
+              total={this.countTotalFeedback()}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
+            />
+          )}
+          {this.countTotalFeedback() === 0 && (
+            <Notification message="There is no feedback😥"></Notification>
+          )}
         </SectionTitle>
-        <Notification message="There is no feedback"></Notification>
       </div>
     );
   }
