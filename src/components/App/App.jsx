@@ -1,4 +1,3 @@
-// import { LeaveFedback } from 'components/LeaveFeedback/LeaveFeedback';
 import React from 'react';
 
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
@@ -51,7 +50,7 @@ export class App extends React.Component {
           />
         </SectionTitle>
         <SectionTitle title="Statistics">
-          {this.countTotalFeedback() > 0 && (
+          {!!this.countTotalFeedback() > 0 ? (
             <Statistics
               good={this.state.good}
               neutral={this.state.neutral}
@@ -59,8 +58,7 @@ export class App extends React.Component {
               total={this.countTotalFeedback()}
               positivePercentage={this.countPositiveFeedbackPercentage()}
             />
-          )}
-          {this.countTotalFeedback() === 0 && (
+          ) : (
             <Notification message="There is no feedback😥"></Notification>
           )}
         </SectionTitle>

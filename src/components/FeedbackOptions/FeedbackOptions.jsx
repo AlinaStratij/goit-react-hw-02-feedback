@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { FedbackButton } from 'components/FeedbackOptions/FeedbackOptions.styled';
 
 export const FeedbackOptions = ({
@@ -19,4 +21,9 @@ export const FeedbackOptions = ({
       </FedbackButton>
     </div>
   );
+};
+FeedbackOptions.propTypes = {
+  onLeaveGoodFeedback: PropTypes.func.isRequired,
+  onLeaveNeutralFeedback: PropTypes.func.isRequired,
+  onLeaveBadFeedback: PropTypes.func.isRequired,
 };
